@@ -16,9 +16,9 @@
         body {
             text-align: left;
             width: 100%;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, .05);
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
+            /* -webkit-tap-highlight-color: rgba(0, 0, 0, .05); */
+            /* -webkit-touch-callout: none; */
+            /* -webkit-user-select: none; */
             background: #e9dfc7;
             overflow: hidden;
         }
@@ -44,6 +44,38 @@
             text-align: justify;
             letter-spacing: 0px;
             line-height: 24px;
+        }
+
+        .u-tab {
+            /* position: relative; */
+            height: 34px;
+            margin: 10px auto;
+            line-height: 34px;
+            border-radius: 8px;
+            border: 1px solid #858382;
+            font-size: 13px;
+            background: #000;
+            opacity: 0.9;
+        }
+
+        .u-tab li {
+            display: inline-block;
+            width: 49%;
+            font-size: 13px;
+            border-right: 1px solid #858382;
+            /* -webkit-box-sizing: border-box; */
+            text-align: center;
+            color: #fff;
+        }
+
+        .m-button-bar {
+            /* text-align: center; */
+            /* font-size: 14px; */
+            padding: 5px;
+            /* margin: 10px; */
+            max-width: 900px;
+            margin: 0 auto;
+            width: 70%
         }
     </style>
 </head>
@@ -79,7 +111,7 @@
                 <li id="prev_button">
                     上一章
                 </li>
-                <li id="next_button">
+                <li id="next_button" style="border-right:none">
                     下一章
                 </li>
             </ul>
