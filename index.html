@@ -105,15 +105,23 @@
             color: #d5d5d6
         }
 
+        .bottom-nav-bk {
+            position: fixed;
+            bottom: 0px;
+            height: 70px;
+            background: #000;
+            width: 100%;
+            opacity: .9;
+            z-index: 10004
+        }
+
         .bottom-nav {
             position: fixed;
             bottom: 0px;
             height: 70px;
-            /* background: none; */
-            background: #000;
+            background: none;
             width: 100%;
-            /* opacity: 1; */
-            opacity: 0.9;
+            opacity: 1;
             z-index: 10004;
             margin: 0 auto;
             text-align: center
@@ -290,10 +298,9 @@
             </p>
         </div>
 
-        <div class="top-nav-pannel-bk"></div>
-
+        <div class="top-nav-pannel-bk font-container" id="font-container"></div>
         <!-- style="display:none" -->
-        <div class="top-nav-pannel" id="font-container">
+        <div class="top-nav-pannel font-container" id="font-container">
             <div class="child-mod">
                 <span>字号</span>
                 <button id="large-font" class="spe-button">
@@ -321,6 +328,9 @@
                 </li>
             </ul>
         </div>
+
+        <!-- style="display:none" -->
+        <div class="bottom-nav-bk bottom_nav"></div>
 
         <!-- style="display:none" -->
         <div class="bottom-nav">
