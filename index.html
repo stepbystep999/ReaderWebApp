@@ -238,6 +238,10 @@
             padding-left: 10px;
         }
 
+        .child-mod:nth-child(2) span {
+            padding-right: 10px;
+        }
+
         .bk-container {
             position: relative;
             height: 30px;
@@ -246,7 +250,7 @@
             border-radius: 15px;
             display: inline-block;
             vertical-align: -14px;
-            /* margin-left: 10px; */
+            margin-left: 10px;
         }
 
         .bk-container-current {
@@ -255,7 +259,6 @@
             width: 32px;
             border-radius: 16px;
             display: inline-block;
-            /* margin-left: 10px; */
             border: 1px #ff7800 solid;
             top: -2px;
             left: -2px;
@@ -267,6 +270,10 @@
             height: 40%;
             width: 100%;
             z-index: 10002;
+        }
+
+        .bottom-nav .current {
+            color: #ff7800;
         }
     </style>
 </head>
@@ -310,9 +317,9 @@
             </p>
         </div>
 
-        <div class="top-nav-pannel-bk font-container" id="font-container" style="display:none"></div>
+        <div class="top-nav-pannel-bk font-container" style="display:none"></div>
 
-        <div class="top-nav-pannel font-container" id="font-container" style="display:none">
+        <div class="top-nav-pannel font-container" style="display:none">
             <div class="child-mod">
                 <span>字号</span>
                 <button id="large-font" class="spe-button">
@@ -324,6 +331,21 @@
             </div>
             <div class="child-mod">
                 <span>背景</span>
+                <div class="bk-container">
+                    <div class="bk-container-current"></div>
+                </div>
+                <div class="bk-container">
+                    <div class="bk-container-current"></div>
+                </div>
+                <div class="bk-container">
+                    <div class="bk-container-current"></div>
+                </div>
+                <div class="bk-container">
+                    <div class="bk-container-current"></div>
+                </div>
+                <div class="bk-container">
+                    <div class="bk-container-current"></div>
+                </div>
                 <div class="bk-container">
                     <div class="bk-container-current"></div>
                 </div>
@@ -400,10 +422,14 @@
             });
 
             var Dom = {
+                action_mid: $('#action_mid'),
                 top_nav: $('#top-nav'),
-                bottom_nav: $('.bottom-nav')
+                bottom_nav: $('.bottom-nav'),
+                font_container: $('.font-container'),
+                font_button: $('#font-button'),
+                night_button: $('night-button')
             };
-            
+
             // 此处没有引号
             Win = $(window);
             Doc = $(document);
@@ -427,22 +453,43 @@
             function EventHanlder() {
                 // 此处的#action_mid只有在main()中的EventHanlder()加载时方才会调用一次，所以不必提前提取
                 // 如果多次调用，就需要像top_nav那样提前提取定义
+                // 但最后还是选择了Dom提取^_^
 
                 // andriod 4.0 及之前的click有300ms延时，但4.0之后就不存在了
                 // 此处不用touch事件，不用zepto的tap方法，因为某些用户会用鼠标操作网页，用click就省去了兼容性处理
-                $('#action_mid').click(function() {
-                    if(Dom.top_nav.css('display') == 'none') {
+                Dom.action_mid.click(function () {
+                    if (Dom.top_nav.css('display') == 'none') {
                         Dom.top_nav.show();
                         Dom.bottom_nav.show();
                     } else {
                         Dom.top_nav.hide();
                         Dom.bottom_nav.hide();
+                        Dom.font_container.hide();
+                        Dom.font_button.removeClass('current');
                     }
-                })
+                });
 
-                Win.scroll(function(){
+                // todo 触发font_container显示/隐藏事件
+                Dom.font_button.click(function () {
+                    if (Dom.font_container.css('display') == 'none') {
+                        Dom.font_container.show();
+                        Dom.font_button.addClass('current');
+                    } else {
+                        Dom.font_container.hide();
+                        Dom.font_button.removeClass('current');
+                    }
+                });
+
+                // todo 触发背景切换事件
+                Dom.night_button.click(function() {
+
+                });
+
+                Win.scroll(function () {
                     Dom.top_nav.hide();
                     Dom.bottom_nav.hide();
+                    Dom.font_container.hide();
+                    Dom.font_button.removeClass('current');
                 });
             };
 
