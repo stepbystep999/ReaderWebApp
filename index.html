@@ -105,7 +105,7 @@
             color: #d5d5d6
         }
 
-        .bottom-nav-bk {
+        .container .bottom-nav-bk {
             position: fixed;
             bottom: 0px;
             height: 70px;
@@ -260,19 +260,31 @@
             top: -2px;
             left: -2px;
         }
+
+        .artical-action-mid {
+            position: fixed;
+            top: 30%;
+            height: 40%;
+            width: 100%;
+            z-index: 10002;
+        }
     </style>
 </head>
 
 <body>
     <div class="container" id="root">
-        <div id="fiction_chapter_title"></div>
+        <div class="m-artical-action">
+            <div class="artical-action-mid" id="action_mid"></div>
+        </div>
 
-        <div class="top-nav" id="top-nav">
+        <div class="top-nav" id="top-nav" style="display:none">
             <div class="icon-back"></div>
             <div class="nav-title">
                 返回书架
             </div>
         </div>
+
+        <div id="fiction_chapter_title"></div>
 
         <div id="fiction_container" class="m-read-content">
             <h4>超文本传输​​协议</h4>
@@ -298,9 +310,9 @@
             </p>
         </div>
 
-        <div class="top-nav-pannel-bk font-container" id="font-container"></div>
-        <!-- style="display:none" -->
-        <div class="top-nav-pannel font-container" id="font-container">
+        <div class="top-nav-pannel-bk font-container" id="font-container" style="display:none"></div>
+
+        <div class="top-nav-pannel font-container" id="font-container" style="display:none">
             <div class="child-mod">
                 <span>字号</span>
                 <button id="large-font" class="spe-button">
@@ -329,11 +341,9 @@
             </ul>
         </div>
 
-        <!-- style="display:none" -->
-        <div class="bottom-nav-bk bottom_nav"></div>
+        <div class="bottom-nav-bk bottom-nav" style="display:none"></div>
 
-        <!-- style="display:none" -->
-        <div class="bottom-nav">
+        <div class="bottom-nav" style="display:none">
             <div class="item menu-button" id="menu_button">
                 <div class="item-warp">
                     <div class="icon-menu"></div>
@@ -371,10 +381,75 @@
     </div>
     <script src="lib/zepto.min.js"></script>
     <script>
-        window.jQuery = $;
+        window.jQuery = $;  //此$为zepto中的方法，为了通用起见，绑定到jQuery上
     </script>
     <script src="js/jquery.base64.js"></script>
     <script src="js/jquery.jsonp.js"></script>
+
+    <script>
+        (function () {
+            // todo 封装localStorage数据存储函数，因为需要添加Key的前缀，防止浏览器存储的变量名污染
+            var Util = (function () {
+                var prefix = 'fiction_reader_';
+                var StorageGetter = function (key) {
+                    return localStorage.getItem(prefix + key);
+                }
+                var StorageSetter = function (key, val) {
+                    return localStorage.setItem(prefix + key, val);
+                }
+            });
+
+            var Dom = {
+                top_nav: $('#top-nav'),
+                bottom_nav: $('.bottom-nav')
+            };
+            
+            // 此处没有引号
+            Win = $(window);
+            Doc = $(document);
+
+            // todo 整个项目的入口函数
+            function main() {
+                EventHanlder();
+            };
+
+            // todo 实现和阅读器相关的数据交互方法
+            function ReaderModel() {
+
+            };
+
+            // todo 渲染基本的UI结构
+            function ReaderBaseFrame() {
+
+            };
+
+            // todo 交互的事件绑定
+            function EventHanlder() {
+                // 此处的#action_mid只有在main()中的EventHanlder()加载时方才会调用一次，所以不必提前提取
+                // 如果多次调用，就需要像top_nav那样提前提取定义
+
+                // andriod 4.0 及之前的click有300ms延时，但4.0之后就不存在了
+                // 此处不用touch事件，不用zepto的tap方法，因为某些用户会用鼠标操作网页，用click就省去了兼容性处理
+                $('#action_mid').click(function() {
+                    if(Dom.top_nav.css('display') == 'none') {
+                        Dom.top_nav.show();
+                        Dom.bottom_nav.show();
+                    } else {
+                        Dom.top_nav.hide();
+                        Dom.bottom_nav.hide();
+                    }
+                })
+
+                Win.scroll(function(){
+                    Dom.top_nav.hide();
+                    Dom.bottom_nav.hide();
+                });
+            };
+
+            // 初始化mian函数
+            main();
+        })()
+    </script>
 </body>
 
 </html>
