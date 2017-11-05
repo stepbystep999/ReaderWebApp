@@ -420,7 +420,24 @@
                 let StorageSetter = function (key, val) {
                     return localStorage.setItem(prefix + key, val);
                 }
+
+                //数据解密
+                function getJSONP(url, callback) {
+                    return $.jsonp({
+                        url: url,
+                        cache: true,
+                        callback: "duokan_fiction_chapter",
+                        success: function (result) {
+                            var data = $.base64.decode(result);
+                            var json = decodeURIComponent(escape(data));
+                            callback(json);
+                        }
+                    });
+
+                };
+
                 return {
+                    getJSONP: getJSONP,
                     StorageGetter: StorageGetter,
                     StorageSetter: StorageSetter
                 }
@@ -513,12 +530,47 @@
 
             // todo 整个项目的入口函数
             function main() {
+                let readerModel = ReaderModel();
+                readerModel.init();
                 EventHanlder();
             };
 
             // todo 实现和阅读器相关的数据交互方法
             function ReaderModel() {
+                var Chapter_id;
+                var init = function () {
+                    getFictionInfo(function () {
+                        // todo...
+                        getCurChapterContent(Chapter_id, function() {
 
+                        });
+                    });
+                };
+
+                var getFictionInfo = function(callback) {
+                    // todo 获取章节信息之后的回调
+                    $.get("data/chapter.json", function (data) {
+
+                        Chapter_id = data.chapters[1].chapter_id;
+                        callback & callback();
+                    }, 'json');
+                };
+
+                //获得当前章节内容
+                var getCurChapterContent = function (chapter_id, data) {
+                    $.get("data/data" + chapter_id + ".json", function (data) {
+                        if (data.result == 0) {
+                            var url = data.jsonp;
+                            Util.getBSONP(url, function (data) {
+                                callback & callback();
+                            });
+                        }
+                    }, 'json');
+                };
+
+                return {
+                    init: init
+                };
             };
 
             // todo 渲染基本的UI结构
