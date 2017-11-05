@@ -430,7 +430,7 @@
                         success: function (result) {
                             var data = $.base64.decode(result);
                             var json = decodeURIComponent(escape(data));
-                            callback(json);
+                            callback(data);
                         }
                     });
 
@@ -561,8 +561,8 @@
                     $.get("data/data" + chapter_id + ".json", function (data) {
                         if (data.result == 0) {
                             var url = data.jsonp;
-                            Util.getBSONP(url, function (data) {
-                                callback & callback();
+                            Util.getJSONP(url, function (data) {
+                                callback & callback(data);
                             });
                         }
                     }, 'json');
