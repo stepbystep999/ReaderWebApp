@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,minimal-ui">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/reader.css">
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div class="container" id="root">
+        <div class="m-artical-action">
+            <div class="artical-action-mid" id="action_mid"></div>
+        </div>
+
+        <div class="top-nav" id="top-nav" style="display:none">
+            <div class="icon-back"></div>
+            <div class="nav-title">
+                返回书架
+            </div>
+        </div>
+
+        <div id="fiction_chapter_title"></div>
+
+        <div id="fiction_container" class="m-read-content">
+            <h4>超文本传输​​协议</h4>
+            <p>
+                超文本传输​​协议（HTTP）是用于传输诸如HTML的超媒体文档的应用层协议。它被设计用于Web浏览器和Web服务器之间的通信，但它也可以用于其他目的。 HTTP遵循经典的客户端-服务端模型，客户端打开一个连接以发出请求，然后等待它收到服务器端响应。
+                HTTP是无状态协议，意味着服务器不会在两个请求之间保留任何数据（状态）。虽然通常基于TCP / IP层，但可以在任何可靠的传输层上使用;也就是说，一个不会静默丢失消息的协议，如UDP。
+            </p>
+            <p>
+                超文本传输​​协议（HTTP）是用于传输诸如HTML的超媒体文档的应用层协议。它被设计用于Web浏览器和Web服务器之间的通信，但它也可以用于其他目的。 HTTP遵循经典的客户端-服务端模型，客户端打开一个连接以发出请求，然后等待它收到服务器端响应。
+                HTTP是无状态协议，意味着服务器不会在两个请求之间保留任何数据（状态）。虽然通常基于TCP / IP层，但可以在任何可靠的传输层上使用;也就是说，一个不会静默丢失消息的协议，如UDP。
+            </p>
+            <p>
+                超文本传输​​协议（HTTP）是用于传输诸如HTML的超媒体文档的应用层协议。它被设计用于Web浏览器和Web服务器之间的通信，但它也可以用于其他目的。 HTTP遵循经典的客户端-服务端模型，客户端打开一个连接以发出请求，然后等待它收到服务器端响应。
+                HTTP是无状态协议，意味着服务器不会在两个请求之间保留任何数据（状态）。虽然通常基于TCP / IP层，但可以在任何可靠的传输层上使用;也就是说，一个不会静默丢失消息的协议，如UDP。
+            </p>
+            <p>
+                超文本传输​​协议（HTTP）是用于传输诸如HTML的超媒体文档的应用层协议。它被设计用于Web浏览器和Web服务器之间的通信，但它也可以用于其他目的。 HTTP遵循经典的客户端-服务端模型，客户端打开一个连接以发出请求，然后等待它收到服务器端响应。
+                HTTP是无状态协议，意味着服务器不会在两个请求之间保留任何数据（状态）。虽然通常基于TCP / IP层，但可以在任何可靠的传输层上使用;也就是说，一个不会静默丢失消息的协议，如UDP。
+            </p>
+            <p>
+                超文本传输​​协议（HTTP）是用于传输诸如HTML的超媒体文档的应用层协议。它被设计用于Web浏览器和Web服务器之间的通信，但它也可以用于其他目的。 HTTP遵循经典的客户端-服务端模型，客户端打开一个连接以发出请求，然后等待它收到服务器端响应。
+                HTTP是无状态协议，意味着服务器不会在两个请求之间保留任何数据（状态）。虽然通常基于TCP / IP层，但可以在任何可靠的传输层上使用;也就是说，一个不会静默丢失消息的协议，如UDP。
+            </p>
+        </div>
+
+        <div class="top-nav-pannel-bk font-container" style="display:none"></div>
+
+        <div class="top-nav-pannel font-container" style="display:none">
+            <div class="child-mod">
+                <span>字号</span>
+                <button id="large-font" class="spe-button">
+                    大
+                </button>
+                <button id="small-font" class="spe-button" style="margin-left:10px;">
+                    小
+                </button>
+            </div>
+            <div class="child-mod">
+                <span>背景</span>
+                <div class="bk-container">
+                    <div></div>
+                </div>
+                <div class="bk-container">
+                    <div></div>
+                </div>
+                <div class="bk-container">
+                    <div></div>
+                </div>
+                <div class="bk-container">
+                    <div></div>
+                </div>
+                <div class="bk-container">
+                    <div></div>
+                </div>
+                <div class="bk-container">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <div class="m-button-bar">
+                <ul class="u-tab">
+                    <li id="prev_button">
+                        上一章
+                    </li>
+                    <li id="next_button" style="border-right:none">
+                        下一章
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bottom-nav-bk bottom-nav" style="display:none"></div>
+
+        <div class="bottom-nav" style="display:none">
+            <div class="item menu-button" id="menu_button">
+                <div class="item-warp">
+                    <div class="icon-menu"></div>
+                    <div class="icon-text">
+                        目录
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" id="font-button">
+                <div class="item-warp">
+                    <div class="icon-ft"></div>
+                    <div class="icon-text">
+                        字体
+                    </div>
+                </div>
+            </div>
+
+            <div class="item" id="night-button">
+                <div class="item-warp" style="display:none" id="day_icon">
+                    <div class="icon-day"></div>
+                    <div class="icon-text">
+                        白天
+                    </div>
+                </div>
+
+                <div class="item-warp" id="night_icon">
+                    <div class="icon-night"></div>
+                    <div class="icon-text">
+                        夜间
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/lib/zepto.min.js"></script>
+    <script>
+        window.jQuery = $;  //此$为zepto中的方法，为了通用起见，绑定到jQuery上
+    </script>
+    <script src="static/lib/jquery.base64.js"></script>
+    <script src="static/lib/jquery.jsonp.js"></script>
+
+    <script>
+        (function () {
+            // todo 封装localStorage数据存储函数，因为需要添加Key的前缀，防止浏览器存储的变量名污染
+            let Util = (function () {
+                let prefix = 'fiction_reader_';
+                let StorageGetter = function (key) {
+                    return localStorage.getItem(prefix + key);
+                }
+                let StorageSetter = function (key, val) {
+                    return localStorage.setItem(prefix + key, val);
+                }
+
+                //数据解密
+                // function getJSONP(url, callback) {
+                //     return $.jsonp({
+                //         url: url,
+                //         cache: true,
+                //         callback: "duokan_fiction_chapter",
+                //         success: function (result) {
+                //             var data = $.base64.decode(result);
+                //             var json = decodeURIComponent(escape(data));
+                //             callback(data);
+                //         }
+                //     });
+                // };
+
+                return {
+                    // getJSONP: getJSONP,
+                    StorageGetter: StorageGetter,
+                    StorageSetter: StorageSetter
+                }
+            })();
+
+            // todo DOM节点的获取与定义
+            let Dom = {
+                action_mid: $('#action_mid'),
+                top_nav: $('#top-nav'),
+                bottom_nav: $('.bottom-nav'),
+                font_container: $('.font-container'),
+                fiction_container: $('#fiction_container'),
+                bottom_bar: $('.bottom-bar', ),
+                font_button: $('#font-button'),
+                large_font: $('#large-font'),
+                small_font: $('#small-font'),
+                bk_container: $('.bk-container'),
+                night_button: $('#night-button'),
+                day_icon: $('#day_icon'),
+                night_icon: $('#night_icon')
+            };
+
+            // 此处没有引号
+            Win = $(window);
+            Doc = $(document);
+
+            // todo 字体大小初始化
+            let font_size = Util.StorageGetter('font_size');
+            let initFontSize = parseInt(font_size);
+            if (!initFontSize) {
+                initFontSize = 14;
+            }
+            Dom.fiction_container.css('font_size', initFontSize);
+
+            // todo 字体、背景颜色数据
+            let Color = [
+                {
+                    name: '米白',
+                    font_color: '#000',
+                    background_color: '#f7eee5'
+                },
+                {
+                    name: '纸张',
+                    font_color: '#000',
+                    background_color: '#e9dfc7'
+                },
+                {
+                    name: '浅灰',
+                    font_color: '#000',
+                    background_color: '#a4a4a4'
+                },
+                {
+                    name: '护眼',
+                    font_color: '#000',
+                    background_color: '#cdefce'
+                },
+                {
+                    name: '米白',
+                    font_color: '#7685a2',
+                    background_color: '#283548'
+                },
+                {
+                    name: '夜间',
+                    font_color: '#4e534f',
+                    background_color: '#0f1410'
+                },
+            ];
+
+            // todo 字体、背景、选项卡片颜色初始化
+            let style_index = Util.StorageGetter('style_index');
+            Dom.bk_container.find('div').removeClass('bk-container-current');
+            Dom.bk_container.eq(style_index).find('div').addClass('bk-container-current');
+            Dom.fiction_container.css('font-color', Util.StorageGetter('font_color'));
+            Dom.fiction_container.css('background-color', Util.StorageGetter('background_color'));
+            Dom.bottom_bar.css('background-color', Util.StorageGetter('background_color'));
+
+            for (let i = 0; i < Color.length; i++) {
+                Dom.bk_container.eq(i).css('background-color', Color[i].background_color);
+            };
+
+            // todo 白天/黑夜模式初始化
+            let day_night = Util.StorageGetter('day_night');
+            if (day_night == 'night') {
+                Dom.day_icon.show();
+                Dom.night_icon.hide();
+            } else {
+                Dom.night_icon.show();
+                Dom.day_icon.hide();
+            }
+
+            // todo 整个项目的入口函数
+            function main() {
+                // let readerModel = ReaderModel();
+                // readerModel.init();
+                EventHanlder();
+            };
+
+            // todo 实现和阅读器相关的数据交互方法
+            // function ReaderModel() {
+            //     var Chapter_id;
+            //     var init = function () {
+            //         getFictionInfo(function () {
+            //             // todo...
+            //             getCurChapterContent(Chapter_id, function () {
+
+            //             });
+            //         });
+            //     };
+
+            //     var getFictionInfo = function (callback) {
+            //         // todo 获取章节信息之后的回调
+            //         $.get("data/chapter.json", function (data) {
+
+            //             Chapter_id = data.chapters[1].chapter_id;
+            //             callback & callback();
+            //         }, 'json');
+            //     };
+
+            //     //获得当前章节内容
+            //     var getCurChapterContent = function (chapter_id, data) {
+            //         $.get("data/data" + chapter_id + ".json", function (data) {
+            //             if (data.result == 0) {
+            //                 var url = data.jsonp;
+            //                 Util.getJSONP(url, function (data) {
+            //                     callback & callback(data);
+            //                 });
+            //             }
+            //         }, 'json');
+            //     };
+
+            //     return {
+            //         init: init
+            //     };
+            // };
+
+            // todo 渲染基本的UI结构
+            function ReaderBaseFrame() {
+
+            };
+
+            // todo 交互的事件绑定
+            function EventHanlder() {
+                // 此处的#action_mid只有在main()中的EventHanlder()加载时方才会调用一次，所以不必提前提取
+                // 如果多次调用，就需要像top_nav那样提前提取定义
+                // 但最后还是选择了Dom提取^_^
+
+                // andriod 4.0 及之前的click有300ms延时，但4.0之后就不存在了
+                // 此处不用touch事件，不用zepto的tap方法，因为某些用户会用鼠标操作网页，用click就省去了兼容性处理
+                Dom.action_mid.click(function () {
+                    if (Dom.top_nav.css('display') == 'none') {
+                        Dom.top_nav.show();
+                        Dom.bottom_nav.show();
+                    } else {
+                        Dom.top_nav.hide();
+                        Dom.bottom_nav.hide();
+                        Dom.font_container.hide();
+                        Dom.font_button.removeClass('current');
+                    }
+                });
+
+                // todo 触发font_container显示/隐藏事件
+                Dom.font_button.click(function () {
+                    if (Dom.font_container.css('display') == 'none') {
+                        Dom.font_container.show();
+                        Dom.font_button.addClass('current');
+                    } else {
+                        Dom.font_container.hide();
+                        Dom.font_button.removeClass('current');
+                    }
+                });
+
+                // todo 文章字体增大事件
+                Dom.large_font.click(function () {
+                    if (initFontSize >= 20) {
+                        return;
+                    }
+                    initFontSize++;
+                    Dom.fiction_container.css('font-size', initFontSize);
+                    Util.StorageSetter('font_size', initFontSize);
+                });
+
+                // todo 文章字体缩小事件
+                Dom.small_font.click(function () {
+                    if (initFontSize <= 12) {
+                        return;
+                    }
+                    initFontSize--;
+                    Dom.fiction_container.css('font-size', initFontSize);
+                    Util.StorageSetter('font_size', initFontSize);
+                });
+
+                // todo 文章背景及字体颜色切换事件
+                // 事件委托？
+                Dom.bk_container.click(function () {
+                    let index = $(this).index() - 1;
+                    Dom.bk_container.find('div').removeClass('bk-container-current');
+                    $(this).find('div').addClass('bk-container-current');
+                    Dom.fiction_container.css('color', Color[index].font_color);
+                    Dom.fiction_container.css('background-color', Color[index].background_color);
+                    Dom.bottom_bar.css('background-color', Color[index].background_color);
+                    Util.StorageSetter('style_index', index);
+                    Util.StorageSetter('font_color', Color[index].font_color);
+                    Util.StorageSetter('background_color', Color[index].background_color);
+                });
+
+                // todo 触发白天/黑夜模式切换事件
+                Dom.night_button.click(function () {
+                    if (Dom.night_icon.css('display') == 'none') {
+                        Dom.night_icon.show();
+                        Dom.day_icon.hide();
+                        Dom.bk_container.find('div').removeClass('bk-container-current');
+                        Dom.bk_container.eq(5).find('div').addClass('bk-container-current');
+                        Dom.fiction_container.css('color', Color[0].font_color);
+                        Dom.fiction_container.css('background-color', Color[0].background_color);
+                        Util.StorageSetter('day_night', 'day');
+                        Util.StorageSetter('style_index', 0);
+                        Util.StorageSetter('font_color', Color[0].font_color);
+                        Util.StorageSetter('background_color', Color[0].background_color);
+                    } else {
+                        Dom.day_icon.show();
+                        Dom.night_icon.hide();
+                        Dom.bk_container.find('div').removeClass('bk-container-current');
+                        Dom.bk_container.eq(0).find('div').addClass('bk-container-current');
+                        Dom.fiction_container.css('color', Color[5].font_color);
+                        Dom.fiction_container.css('background-color', Color[5].background_color);
+                        Util.StorageSetter('day_night', 'night');
+                        Util.StorageSetter('style_index', 5);
+                        Util.StorageSetter('font_color', Color[5].font_color);
+                        Util.StorageSetter('background_color', Color[5].background_color);
+                    }
+                });
+
+                // todo 滚屏时隐藏操作栏
+                Win.scroll(function () {
+                    Dom.top_nav.hide();
+                    Dom.bottom_nav.hide();
+                    Dom.font_container.hide();
+                    Dom.font_button.removeClass('current');
+                });
+            };
+
+            // 初始化mian函数
+            main();
+        })()
+    </script>
+</body>
+
+</html>
